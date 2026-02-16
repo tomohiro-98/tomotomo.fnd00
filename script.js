@@ -88,6 +88,7 @@ function merge() {
       }
     });
   });
+    clearLines(); // ← 追加
 }
 
 function drop() {
@@ -127,3 +128,13 @@ document.addEventListener("keydown", e => {
 setInterval(drop, 500);
 
 drawBoard();
+
+function clearLines() {
+  for (let y = ROWS - 1; y >= 0; y--) {
+    if (board[y].every(cell => cell === 1)) {
+      board.splice(y, 1);                // その行を削除
+      board.unshift(Array(COLS).fill(0)); // 上に空行を追加
+      y++; // 連続行対応
+    }
+  }
+}
