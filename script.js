@@ -1,7 +1,7 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-const COLS = 12;
+const COLS = 10;
 const ROWS = 20;
 const BLOCK = 20;
 
